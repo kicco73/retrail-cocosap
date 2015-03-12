@@ -50,4 +50,11 @@ public class MainTest extends TestCase {
         assert(sessionManagercall("endAccess", sapId));
     }
 
+    public void testTryStartEnd() throws Exception {
+        log.warn("testing try-end cycle");
+        String sapId = "sap-identifier";
+        assert(sessionManagercall("tryAccess", sapId));
+        assert(sessionManagercall("startAccess", sapId));
+        assert(sessionManagercall("endAccess", sapId));
+    }
 }
