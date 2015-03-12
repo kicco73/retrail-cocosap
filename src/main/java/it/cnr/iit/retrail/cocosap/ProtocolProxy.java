@@ -1,10 +1,8 @@
 /*
  * CNR - IIT
- * Coded by: 2014 Enrico "KMcC;) Carniani
+ * Coded by: 2015 Enrico "KMcC;) Carniani
  */
 package it.cnr.iit.retrail.cocosap;
-
-import org.w3c.dom.Node;
 
 /**
  *
@@ -18,18 +16,18 @@ public class ProtocolProxy implements PIPDataCollectorProtocol, PEPSessionManage
     }
 
     @Override
-    public boolean tryAccess(String sapId) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Boolean tryAccess(String sapId) throws Exception {
+        return Main.pep.tryAccess(sapId);
     }
 
     @Override
-    public boolean startAccess(String sapId) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Boolean startAccess(String sapId) throws Exception {
+        return Main.pep.startAccess(sapId);
     }
 
     @Override
-    public boolean endAccess(String sapId) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Boolean endAccess(String sapId) throws Exception {
+        return Main.pep.endAccess(sapId);
     }
 
 }

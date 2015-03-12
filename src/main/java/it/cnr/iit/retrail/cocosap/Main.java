@@ -25,12 +25,12 @@ public class Main {
     static final String defaultKeystorePassword = "uconas4wc";
     static private UCon ucon = null;
     static public PEPSessionManager pep = null;
-    static public FakeEventHandler semaphoreServer = null;
+    static public FakeEventHandler fakeEventHandler = null;
     
     static public void main(String[] argv) throws Exception {
             log.info("Setting up Semaphore server...");
-            semaphoreServer = new FakeEventHandler();
-            semaphoreServer.init();
+            fakeEventHandler = new FakeEventHandler();
+            fakeEventHandler.init();
 
             String pdpUrlString = argv != null && argv.length > 0? 
                     argv[0] : "http://localhost:9090";
@@ -65,7 +65,7 @@ public class Main {
     static public void term() throws InterruptedException {
         pep.term();
         ucon.term();
-        semaphoreServer.term();
+        fakeEventHandler.term();
     }
 
 }

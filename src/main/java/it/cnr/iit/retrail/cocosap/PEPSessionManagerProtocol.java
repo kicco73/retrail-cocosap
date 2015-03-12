@@ -13,8 +13,8 @@ import org.w3c.dom.Node;
  */
 public interface PEPSessionManagerProtocol {
 
-    boolean tryAccess(String sapId) throws Exception;
-    boolean startAccess(String sapId) throws Exception;
-    boolean endAccess(String sapId) throws Exception;
+    Boolean tryAccess(String sapId) throws Exception;
+    Boolean startAccess(String sapId) throws Exception;
+    Boolean endAccess(String sapId) throws Exception;
 
 }

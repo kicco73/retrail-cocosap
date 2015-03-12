@@ -14,11 +14,11 @@ public interface FakeEventHandlerProtocol {
 
     String unsubscribe(String name, String callbackUrl) throws Exception;
     
-    boolean tryAccessResponse(String sapId, boolean permit);
+    Boolean tryAccessResponse(String sapId, boolean permit);
     
-    boolean startAccessResponse(String sapId, boolean permit);
+    Boolean startAccessResponse(String sapId, boolean permit);
     
-    boolean endAccessResponse(String sapId, boolean permit);
+    Boolean endAccessResponse(String sapId, boolean permit);
     
-    boolean revokeAccess(String sapId, boolean permit);
+    Boolean revokeAccess(String sapId);
 }

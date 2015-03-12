@@ -21,23 +21,23 @@ public class FakeEventHandlerProxy implements FakeEventHandlerProtocol {
     }
 
     @Override
-    public boolean tryAccessResponse(String sapId, boolean permit) {
+    public Boolean tryAccessResponse(String sapId, boolean permit) {
         return FakeEventHandler.getInstance().tryAccessResponse(sapId, permit);
     }
 
     @Override
-    public boolean startAccessResponse(String sapId, boolean permit) {
+    public Boolean startAccessResponse(String sapId, boolean permit) {
         return FakeEventHandler.getInstance().startAccessResponse(sapId, permit);
     }
 
     @Override
-    public boolean endAccessResponse(String sapId, boolean permit) {
+    public Boolean endAccessResponse(String sapId, boolean permit) {
         return FakeEventHandler.getInstance().endAccessResponse(sapId, permit);
     }
 
     @Override
-    public boolean revokeAccess(String sapId, boolean permit) {
-        return FakeEventHandler.getInstance().revokeAccess(sapId, permit);
+    public Boolean revokeAccess(String sapId) {
+        return FakeEventHandler.getInstance().revokeAccess(sapId);
     }
 
 }

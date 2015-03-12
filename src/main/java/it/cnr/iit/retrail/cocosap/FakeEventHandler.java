@@ -81,26 +81,26 @@ public class FakeEventHandler extends Server implements FakeEventHandlerProtocol
     }
 
     @Override
-    public boolean tryAccessResponse(String sapId, boolean permit) {
-        log.warn("TRY ACCESS: {}", permit);
+    public Boolean tryAccessResponse(String sapId, boolean permit) {
+        log.warn("EVENT HANDLER RECEIVED TRY ACCESS RESPONSE: {}", permit);
         return true;
     }
 
     @Override
-    public boolean startAccessResponse(String sapId, boolean permit) {
-        log.warn("START ACCESS: {}", permit);
+    public Boolean startAccessResponse(String sapId, boolean permit) {
+        log.warn("EVENT HANDLER RECEIVED START ACCESS RESPONSE: {}", permit);
         return true;
     }
 
     @Override
-    public boolean endAccessResponse(String sapId, boolean permit) {
-        log.warn("END ACCESS: {}", permit);
+    public Boolean endAccessResponse(String sapId, boolean permit) {
+        log.warn("EVENT HANDLER RECEIVED END ACCESS RESPONSE: {}", permit);
         return true;
     }
 
     @Override
-    public boolean revokeAccess(String sapId, boolean permit) {
-        log.warn("REVOKE ACCESS CALLED");
+    public Boolean revokeAccess(String sapId) {
+        log.warn("EVENT HANDLER REVOKE ACCESS CALLED");
         return true;
     }
     

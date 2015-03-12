@@ -65,8 +65,10 @@ public class PIPDataCollector extends StandAlonePIP implements PIPDataCollectorP
     }
 
     private WebServer getServer() throws Exception {
-        log.warn("listening at URL: {}, namespace: {}", dataCollectorUrl, getClass().getSimpleName());
-        _webServer = Server.createWebServer(new URL(dataCollectorUrl), ProtocolProxy.class, getClass().getSimpleName());        
+        if(_webServer == null) {
+            log.warn("listening at URL: {}, namespace: {}", dataCollectorUrl, getClass().getSimpleName());
+            _webServer = Server.createWebServer(new URL(dataCollectorUrl), ProtocolProxy.class, getClass().getSimpleName());  
+        }
         return _webServer;
     }
 
