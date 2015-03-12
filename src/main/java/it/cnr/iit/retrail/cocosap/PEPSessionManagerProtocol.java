@@ -7,7 +7,7 @@ package it.cnr.iit.retrail.cocosap;
 
 /**
  * This interface is responsible of asking access to the continuous access
- * control system.
+ * control system by the EH.
  * @author oneadmin
  */
 public interface PEPSessionManagerProtocol {
