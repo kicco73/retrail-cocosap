@@ -33,6 +33,11 @@ public class ProtocolProxy implements PIPDataCollectorProtocol, PEPSessionManage
     }
 
     @Override
+    public Boolean notifyRevocation(String sapId) throws Exception {
+        return Main.pep.notifyRevocation(sapId);
+    }
+    
+    @Override
     public Boolean endAccess(String sapId) throws Exception {
         return Main.pep.endAccess(sapId);
     }

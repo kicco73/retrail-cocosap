@@ -81,5 +81,15 @@ public interface PEPSessionManagerProtocol {
      * @throws Exception if something goes wrong.
      */
     Boolean endAccess(String sapId) throws Exception;
+    
+    /**
+     * notifyRevocation() called by the EH to notify that the obligation engine 
+     * revoked the access to the resource. 
+     * @param sapId the EH own identification number for the object to be
+     * kept under control. 
+     * @return true. 
+     * @throws Exception if something goes wrong.
+     */
+    Boolean notifyRevocation(String sapId) throws Exception;
 
 }

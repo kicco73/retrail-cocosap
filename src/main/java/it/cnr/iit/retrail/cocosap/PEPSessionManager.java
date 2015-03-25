@@ -103,6 +103,12 @@ public class PEPSessionManager  extends PEP implements PEPSessionManagerProtocol
     }   
     
     @Override
+    public Boolean notifyRevocation(String sapId) throws Exception {
+        PepResponse res = endAccess(null, sapId);
+        return true;
+    }
+    
+    @Override
     public synchronized void onRevokeAccess(PepSession session) throws Exception {
         sendNotification("FakeEventHandler.revokeAccess", session.getCustomId());
     }
