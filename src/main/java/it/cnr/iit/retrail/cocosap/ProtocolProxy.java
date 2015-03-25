@@ -4,8 +4,6 @@
  */
 package it.cnr.iit.retrail.cocosap;
 
-import org.w3c.dom.Node;
-
 /**
  *
  * @author oneadmin
