@@ -6,13 +6,19 @@
 package it.cnr.iit.retrail.cocosap;
 
 import it.cnr.iit.retrail.client.impl.PEP;
+import it.cnr.iit.retrail.commons.DomUtils;
 import it.cnr.iit.retrail.commons.impl.Client;
+import it.cnr.iit.retrail.commons.impl.PepAttribute;
 import it.cnr.iit.retrail.commons.impl.PepRequest;
 import it.cnr.iit.retrail.commons.impl.PepResponse;
 import it.cnr.iit.retrail.commons.impl.PepSession;
 import it.cnr.iit.retrail.server.impl.UCon;
 import java.net.URL;
 import org.apache.xmlrpc.XmlRpcException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 /**
  *
@@ -59,16 +65,31 @@ public class PEPSessionManager  extends PEP implements PEPSessionManagerProtocol
     }
     
     @Override
-    public Boolean tryAccess(String sapId) throws Exception {
+    public Boolean tryAccess(String sapId, String subjectId, String actionId, String resourceId) throws Exception {
         PepRequest req = PepRequest.newInstance(
-                sapId,
-                "urn:fedora:names:fedora:2.1:action:id-getDatastreamDissemination",
-                " ",
+                subjectId,
+                actionId,
+                resourceId,
                 UCon.uri);        
         PepResponse res = tryAccess(req, sapId);
         return sendNotification("FakeEventHandler.tryAccessResponse", res, sapId);
     }
 
+    @Override
+    public Boolean tryAccess(String sapId, Object[] xacmlAttributes) throws Exception { 
+        PepRequest req = new PepRequest();
+        for(Object n: xacmlAttributes) {
+            Element element = (Element)((Document)n).getFirstChild();
+            NodeList elementValues = element.getElementsByTagNameNS("*", "AttributeValue");
+            for(int i = 0; i < elementValues.getLength(); i++) {
+                Node valueNode = elementValues.item(i);
+                PepAttribute a = new PepAttribute((Element)valueNode);
+                req.add(a);            
+            }
+        }
+        PepResponse res = tryAccess(req, sapId);
+        return sendNotification("FakeEventHandler.tryAccessResponse", res, sapId);
+    }
     @Override
     public Boolean startAccess(String sapId) throws Exception {
         PepResponse res = startAccess(null, sapId);

@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Thu Mar 12 14:13:31 CET 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-0e1e-56d1-000007b164d8 
-on database directory /home/kicco/NetBeansProjects/retrail-cocosap/retrail2.derby with class loader sun.misc.Launcher$AppClassLoader@c387f44 
+Wed Mar 25 13:10:49 CET 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-50d7-9a26-00000716d040 
+on database directory /home/kicco/NetBeansProjects/retrail-cocosap/retrail2.derby with class loader sun.misc.Launcher$AppClassLoader@42a57993 
 Loaded from file:/home/kicco/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_40-b25

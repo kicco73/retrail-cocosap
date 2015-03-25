@@ -1,5 +1,7 @@
 package it.cnr.iit.retrail.cocosap;
 
+import org.w3c.dom.Node;
+
 /*
  * CNR - IIT
  * Coded by: 2015 Enrico "KMcC;) Carniani
@@ -19,12 +21,30 @@ public interface PEPSessionManagerProtocol {
      * kept under control. The permission may be returned synchronously if
      * it can be computed fast. In any case once the decision is made, it is
      * notified to the EH via the tryAccessResponse event.
+     * @param subjectId the subject id of the request to be generated
+     * @param actionId the action id of the request to be generated
+     * @param resourceId the resource id of the request to be generated
      * @return true if access is permitted, false if not. It may also return
      * null if the permission cannot be calculated fast and no decision can
      * be made at this time. 
      * @throws Exception if something goes wrong.
      */
-    Boolean tryAccess(String sapId) throws Exception;
+    Boolean tryAccess(String sapId, String subjectId, String actionId, String resourceId) throws Exception;
+
+    /**
+     * tryAccess() asks the continuous usage control system to try access
+     * to an EH object.
+     * @param sapId the EH own identification number for the object to be
+     * kept under control. The permission may be returned synchronously if
+     * it can be computed fast. In any case once the decision is made, it is
+     * notified to the EH via the tryAccessResponse event.
+     * @param xacmlAttributes an array of xacml3 arbitrary attributes.
+     * @return true if access is permitted, false if not. It may also return
+     * null if the permission cannot be calculated fast and no decision can
+     * be made at this time. 
+     * @throws Exception if something goes wrong.
+     */
+    Boolean tryAccess(String sapId, Object[] xacmlAttributes) throws Exception;
 
     /**
      * startAccess() asks the continuous usage control system to start the
